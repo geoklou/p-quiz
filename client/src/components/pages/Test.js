@@ -36,7 +36,7 @@ class Test extends Component {
             <p>And, don't forget to check out the hint.</p>
             
              </h4>
-             <h2>this page needs to retrieve quizzes, one at a time</h2>
+             <p>dev note: this page needs to retrieve quizzes, one at a time (paginatoon)</p>
           <p>
             {this.state.username}
           </p>

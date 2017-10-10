@@ -36,8 +36,8 @@ class Home extends Component {
   render() {
     return (
       <div>
-      <h3> Sign in</h3>
-      <div>this page needs user to sign in, then display username on pages Form, List and Take Quiz</div>
+      <h2> Sign in</h2>
+      <div>dev note: this page needs user to sign in, then display username on pages Form, List and Take Quiz</div>
 
       <div className="row">
       <div className="col-sm-6">

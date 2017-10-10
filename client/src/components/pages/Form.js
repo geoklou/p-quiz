@@ -36,7 +36,7 @@ class Form extends Component {
           
           <div className="row">
           <div className="col-sm-6">
-          <h3>Create Questions</h3>
+          <h2>Create Questions</h2>
            <p>Create questions that help students revisit what they have learned or what they need to learn before class.
            {this.state.username} 
           </p>
@@ -61,7 +61,7 @@ class Form extends Component {
             />
             <br />
             <input
-              value={this.state.answer[0]}
+              value={this.state.answer}
               name="answer"
               onChange={this.handleInputChange}
               type="text"
@@ -69,15 +69,15 @@ class Form extends Component {
             />
             <br />
             <input
-              value={this.state.answer[1]}
-              name="answer"
+              value={this.state.answer}
+              name="answer1"
               onChange={this.handleInputChange}
               type="text"
               placeholder="enter option 2"
             />
             <br />
             <input
-              value={this.state.answer[2]}
+              value={this.state.answer}
               name="answer"
               onChange={this.handleInputChange}
               type="text"
@@ -85,7 +85,7 @@ class Form extends Component {
             />
             <br />
             <input
-              value={this.state.answer[3]}
+              value={this.state.answer}
               name="answer"
               onChange={this.handleInputChange}
               type="text"
@@ -113,8 +113,8 @@ class Form extends Component {
             </form>
             </div>
             <div className="col-sm-6">
-              <h3> Learning Standards</h3>
-              <h2>this panel shows learning standards from http://commonstandardsproject.com/</h2>
+              <h2> Learning Standards</h2>
+              <p>dev note: this panel shows learning standards from http://commonstandardsproject.com/</p>
               {this.newStandard}
             </div>
             </div>
