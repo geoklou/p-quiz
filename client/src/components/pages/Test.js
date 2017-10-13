@@ -32,11 +32,10 @@ class Test extends Component {
       return (
   
           <div>
-            <h4>Try your best to answer the question. This will help you do well in class.
+            <h2>Take a Quiz</h2>
+            <p>Try your best to answer the question. This will help you do well in class.</p>
             <p>And, don't forget to check out the hint.</p>
             
-             </h4>
-             <p>dev note: this page needs to retrieve quizzes, one at a time (paginatoon)</p>
           <p>
             {this.state.username}
           </p>

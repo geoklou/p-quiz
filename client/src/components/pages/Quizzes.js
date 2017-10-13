@@ -37,6 +37,7 @@ render() {
    </div>
     <p><strong>Hint:</strong> {quiz.hint}</p>
     <p><strong>Learning Standard:</strong> {quiz.learning_std}</p>
+    <p><strong>Created:</strong> {quiz.date}</p>
     <hr/>
     </div>);
     

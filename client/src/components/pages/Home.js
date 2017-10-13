@@ -39,8 +39,9 @@ class Home extends Component {
       <h2> Sign in</h2>
       <div>dev note: this page needs user to sign in, then display username on pages Form, List and Take Quiz</div>
 
-      <div className="row">
-      <div className="col-sm-6">
+      <div className="container">
+        <div className="row">
+      <div className="col-sm-9 centered">
       <form className="form">
         <input
           type="text"
@@ -61,6 +62,7 @@ class Home extends Component {
       </div>
       </div>
       </div>
+       </div>
     );
   }
 }
