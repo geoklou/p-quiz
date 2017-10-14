@@ -1,8 +1,8 @@
 //get data from commom projects api
 import axios from 'axios';
 
-var gradeChosen;
-var titleChosen;
+// var gradeChosen;
+// var titleChosen;
 
 export default {
     // Gets all standards

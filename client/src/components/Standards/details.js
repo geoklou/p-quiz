@@ -15,6 +15,7 @@ const StandardsDetail = props =>
     <p>
       text: {props.text}
     </p>
+    
   </div>;
 
 export default StandardsDetail;

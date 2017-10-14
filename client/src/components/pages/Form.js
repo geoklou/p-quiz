@@ -50,7 +50,13 @@ class Form extends Component {
           question: "", 
           // answer: ["", "", "", ""],
 // answer: [{option_0, text_0, correct_0}, {option_1, text_1, correct_1}, {option_2, text_2, correct_2},{option_3, text_3, correct_3}],
-          answer: [
+// answer: 
+// [this.state.answer[0].push('a',this.state.answer[0].text,this.state.answer[0].correct),
+// this.state.answer[1].push('b',this.state.answer[1].text,this.state.answer[1].correct),
+// this.state.answer[2].push('c',this.state.answer[2].text,this.state.answer[2].correct),
+// this.state.answer[3].push('d',this.state.answer[3].text,this.state.answer[3].correct),
+// ],
+answer: [
             {option:"",text:"",correct:""},
             {option:"",text:"",correct:""}, 
             {option:"",text:"",correct:""}, 
@@ -84,12 +90,28 @@ handleFormSubmit = event => {
       question: this.state.question,
       // answer: this.state.answer.push([{},{},{},{}]),
       // {this.state.answer[0].correct}
-      answer: this.state.answer[
-        {}, 
-        {}, 
-        {},
-        {}
-      ],
+      // answer: this.state.answer.push(
+      //   {option,text_0,correct_0},
+      //   {option,text_1,correct_1},
+      //   {option,text_2,correct_2},
+      //   {option,text_3,correct_3}
+      // ),
+      answer: 
+      [this.state.answer[0].text.push(this.state.answer[0].text),
+      this.state.answer[0].correct.push(this.state.answer[0].correct)],
+      // // [
+      //   {'a','this.state.answer[0].text','this.state.answer[0].correct'},
+      //   {'b','this.state.answer[1].text','this.state.answer[1].correct'},
+      //   {'c','this.state.answer[2].text','this.state.answer[2].correct'},
+      //   {'d','this.state.answer[3].text','this.state.answer[3].correct'},
+      // // ]
+    // ),
+      // answer: 
+      // [this.state.answer[0].push('a',this.state.answer[0].text,this.state.answer[0].correct),
+      // this.state.answer[1].push('b',this.state.answer[1].text,this.state.answer[1].correct),
+      // this.state.answer[2].push('c',this.state.answer[2].text,this.state.answer[2].correct),
+      // this.state.answer[3].push('d',this.state.answer[3].text,this.state.answer[3].correct),
+      // ],
       hint: this.state.hint,
       learning_std: this.state.learning_std,
     })
@@ -111,7 +133,7 @@ standards.getStandards()
 this.setState({
   gradeLev: this.state.gradeLev,
   title: this.state.title,
-  description: this.state.description,
+  desc: this.state.desc,
   text: this.state.text
 })
 )
@@ -279,6 +301,7 @@ render() {
       </form>
       </div>
 
+{/* learning standards start here */ }
       <div className="col-sm-4">
         <h2> Learning Standards</h2>
         {this.newStandard}
