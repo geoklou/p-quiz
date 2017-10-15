@@ -3,9 +3,9 @@ const db = require("../models");
 // Defining methods for the StandardsController
 module.exports = {
     findAll: function(req, res) {
+        console.log("stanadrds controller: ", req.body);
         db.Standard
         .find(req.query)
-        // .sort({ date: -1 })
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
     },

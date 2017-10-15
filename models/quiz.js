@@ -7,7 +7,7 @@ const quizSchema = new Schema({
   answer: 
   [{option: {type:String, required: true }, 
     text: {type: String, required: true }, 
-    correct: {type: Boolean, required: true, default: false }}
+    correct: {type: Boolean, required: false, default: false }}
   ],
   hint: {type:String, required: true },
   learning_std: {type:String, required: true },

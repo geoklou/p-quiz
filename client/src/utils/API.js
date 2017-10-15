@@ -15,6 +15,7 @@ export default {
   },
   // Saves a Quiz to the database
   saveQuiz: function(QuizData) {
+    console.log(QuizData);
     return axios.post("/api/quizzes", QuizData);
   }
 };

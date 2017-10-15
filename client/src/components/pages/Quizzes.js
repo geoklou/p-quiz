@@ -6,7 +6,6 @@ import API from "../../utils/API";
 class Quizzes extends Component{
   state = {
     quizzes: []
-    
 };
 
 componentDidMount() {
@@ -22,9 +21,15 @@ loadQuizzes = () => {
 
 
 render() {
-  // const content = this.state.quizzes.map((quiz, index)=><div key={index}>{quiz.title}</div>);
+
+
+
   const content = this.state.quizzes.map((quiz, index)=>
   <div key={index}>
+
+
+    
+
     <p><strong>Subject:</strong> {quiz.title}</p> 
     <p><strong>Question:</strong> {quiz.question}</p>
     <div>
@@ -41,14 +46,18 @@ render() {
     <hr/>
     </div>);
     
-  return (
-    <div>
-      <h2>All Questions</h2>
-      
-      { this.state.quizzes.length > 0 ? content : <h3>No Content To Display</h3> }
-    </div>
-      );
-  
+      return (
+        <div>
+          <h2>All Questions</h2>
+          
+          { this.state.quizzes.length > 0 ? content : <h3>No Content To Display</h3> }
+        </div>
+          );
+
+
+ 
+
+
     }
   }
 

@@ -16,8 +16,11 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
-    db.Quiz
-      .create(req.body)
+    console.log("controller: ", req.body);
+    let quiz = new db.Quiz(req.body);
+    quiz.save()
+    // db.Quiz
+    //   .create(req.body)//???
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },

@@ -1,3 +1,7 @@
+
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+@import url('https://fonts.googleapis.com/css?family=Old+Standard+TT');
+
 p {
     line-height: 120%;
     margin: 10px;
@@ -20,3 +24,5 @@ alert {color:red}
 input {background-color: #FFFFE0;}
 
 indent {text-indent: 10px; color:blue;}
+
+standards {font-family: "Old Standard TT";}

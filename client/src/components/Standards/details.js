@@ -1,7 +1,7 @@
 import React from "react";
 
 const StandardsDetail = props =>
-  <div className="text-center">
+  <div className="standards">
     
     <p>
       Grade Level: {props.gradeLev}

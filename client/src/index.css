@@ -13,7 +13,8 @@ body {
       padding: 20px;
       text-align: center;
       font-size: 30px;
-      font-family: 'Franklin Gothic Medium';
+      /* font-family: 'Franklin Gothic Medium'; */
+      font-family: 'Josefin Sans';
       margin: 0 auto;
       height: 100px;
   }
