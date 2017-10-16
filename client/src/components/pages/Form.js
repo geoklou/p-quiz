@@ -158,8 +158,9 @@ class Form extends Component {
 
 
 render() {
+
   return (
-<container>
+
   <div>
     
     <div className="row">
@@ -339,7 +340,6 @@ render() {
       </div>
       
   </div>
-  </container>
 );
 }
 }

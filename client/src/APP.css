@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
 @import url('https://fonts.googleapis.com/css?family=Old+Standard+TT');
 @import url('https://fonts.googleapis.com/css?family=Didact+Gothic');
+@import url('https://fonts.googleapis.com/css?family=Devonshire');
 
 a:hover {
     color: red;
@@ -11,9 +12,21 @@ a:link{
     color: blue;
 }
 
+img.box {
+    box-shadow: 5px 5px 2px #666;
+}
+
+q{
+    font-family:"Devonshire";
+    font-size:32px;
+    float:left;
+    padding: 10px;
+    margin: 10px;
+}
 center {
     text-align: center;
-}
+    float: center;
+    }
 
 p {
     line-height: 120%;
