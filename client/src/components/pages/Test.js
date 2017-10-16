@@ -1,20 +1,54 @@
 import React, { Component } from "react";
-import { RadioGroup, RadioButton } from 'react-radio-buttons';
-
-// import helpers from '../helpers';
+import API from "../../utils/API";
+// import { checkboxGroup, checkboxButton } from 'react-checkbox-buttons';
 
 class Test extends Component {
     // Setting the component's initial state
     state = {
-      title: [],
+      quizzes: [],
       question: "",
       answer: [],
-      hint: "",
-      learning_std:""
+      hint: ""
     };  
+
+    componentDidMount(){
+      // this.loadQuizzes();
+    }
+
+    loadQUizzes = () => {
+      API.getQuizzes()
+      .then(res =>
+      this.setState({
+        quizzes: res.data,
+        title: "",
+        question: "",
+        answer: [
+          {
+            option: "a", 
+            text: "", 
+            correct: ""},
+          {
+            option: "b", 
+            text: "", 
+            correct: ""},
+          {
+            option: "c", 
+            text: "", 
+            correct: ""},
+          {
+            option: "d", 
+            text: "", 
+            correct: ""
+          },
+        ],
+        hint: ""
+      })
+    )
+    .catch(err => console.log(err))
+    };
   
     handleInputChange = event => {
-      console.log(`${event.target.name} - ${event.target.value}`)
+      // console.log(`${event.target.name} - ${event.target.value}`)
       const { name, value } = event.target;
           // Updating the input's state
           this.setState({
@@ -27,79 +61,94 @@ class Test extends Component {
       event.preventDefault();
     };
   
-    render() {
-      // ach input has a `value`, `name`, and `onChange` prop
-      return (
-  
-          <div>
-            <h2>Take a Quiz</h2>
-            <p>Try your best to answer the question. This will help you do well in class.</p>
-            <p>And, don't forget to check out the hint.</p>
-            
-          <p>
-            {this.state.username}
-          </p>
-          
-          <div className="row">
+  render() {
+    // const content = this.state.quizzes.map((quiz, index)=>
+    // <div key={index}>
+    return (
+     
+    <div>
+
+      <h2>Take a Quiz</h2>
+      <p>Try your best to answer the question. This will help you do well in class.</p>
+      <p>And, don't forget to check out the hint.</p>
+      
+        <div className="row">
           <div className="col-sm-8">
+
           <form className="form">
-            <p>Subject:</p>
-            <p>{this.state.title}</p>
-            <p>Question:</p>
-            <p>{this.state.question}</p>
+        
+          {/* {this.state.quizzes.length ? (
+            <li key={quiz.date}>
+            {this.state.quizzes.map(book => ( */}
+
+            <p>Subject: {this.state.title}</p>
+            <p>Question: {this.state.question}</p>
             <p>Options:</p>
-                <RadioGroup onChange={ this.onChange } vertical>
-                <RadioButton value="this.state.answer[0]">
-                  Option 1 {this.state.answer[0]}
-                </RadioButton>
-                <RadioButton value="this.state.answer[1]">
-                  Option 2 {this.state.answer[1]}
-                </RadioButton>
-                <RadioButton value="this.state.answer[2]">
-                  Option 3 {this.state.answer[2]}
-                </RadioButton>
-                <RadioButton value="this.state.answer[3]">
-                  Option 4 {this.state.answer[3]}
-                </RadioButton>
-              </RadioGroup>
-            </form>
 
-            {/* <form> */}
-        {/* <div className="radio">
-          <label>
-            <input type="radio" value="this.state.answer[0]" checked={true} />
-            Option 1
-          </label>
-        </div>
-        <div className="radio">
-          <label>
-            <input type="radio" value="this.state.answer[1]" />
-            Option 2
-          </label>
-        </div>
-        <div className="radio">
-          <label>
-            <input type="radio" value="this.state.answer[2]" />
-            Option 3
-          </label>
-        </div>
-        <div className="radio">
-          <label>
-            <input type="radio" value="this.state.answer[3" />
-            Option 4
-          </label>
-        </div> */}
-        {/* </form> */}
+            <div className="row">
+              <div className="col-sm-10">
+              {this.state.answer.text}
+              </div>
+              <div className="col-sm-2">
+                  <label>
+                    <input type="checkbox" value="this.state.answer[0].correct" defaultChecked={false} />
+                    Option 1 {this.state.answer.correct}
+                  </label>
+              </div>
+            </div>
 
-            <button className='btn btn-primary' onClick={this.handleFormSubmit}>Submit</button>
+            <div className="row">
+              <div className="col-sm-10">
+                {/* {this.state.answer[1].text} */}
+                {this.state.answer}
+              </div>
+              <div className="col-sm-2">
+                  <label>
+                    <input type="checkbox" value="this.state.answer[1].correct" />
+                    Option 2 {this.state.answer.correct}
+                  </label>
+              </div>
             </div>
-            <div className="col-sm-4">
-              <p>Hint:</p>
-            <p>{this.state.hint}</p>
-          
+            
+            <div className="row">
+              <div className="col-sm-10">
+                {this.state.answer.text}
+              </div>
+              <div className="col-sm-2">
+              <label>
+                <input type="checkbox" value="this.state.answer[2].correct" />
+                Option 3 {this.state.answer.correct}
+              </label>
+              </div>
             </div>
+
+            <div className="row">
+              <div className="col-sm-10">
+                {this.state.answer.text}
+              </div>
+              <div className="col-sm-2">
+                <label>
+                  <input type="checkbox" value="this.state.answer[3].correct" />
+                  Option 4 {this.state.answer.correct}
+                </label>
+              </div> 
             </div>
+
+            <div className='row'>
+              <div className="col-sm-8">
+              <p>Hint: {this.state.hint}</p>
+              </div>
             </div>
+
+          <button className='btn btn-primary' onClick={this.handleFormSubmit}>Submit</button>
+  
+    
+          </form> 
+
+        </div>
+    </div>
+  </div>
+
       );
     }
   }

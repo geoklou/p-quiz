@@ -1,9 +1,10 @@
 // import React from "react";
 import React, { Component } from "react";
 import API from "../../utils/API";
-// import standards from '../../utils/standards';
-// import StandardsDetail from '../Standards/details'
-// https://reactjs.org/docs/forms.html
+import standards from '../../utils/standards';
+import StandardsDetail from '../Standards/details';
+// import DATA from '../standards.json';
+
 class Form extends Component {
     // Setting the component's initial state
     constructor(props) {
@@ -89,7 +90,6 @@ class Form extends Component {
       API.saveQuiz(this.state)
         .then(res => this.createQuiz()) //change updateQuiz to createQuiz
         .catch(err => console.log(err)); 
-
   };
 
 // searchStandards = query => {
@@ -98,43 +98,52 @@ class Form extends Component {
 //     .catch(err => console.log(err));
 // };
 
-// createQuiz = () => {
-//   API.saveQuiz()
-//     .then(res =>
-//       this.setState({ 
-//         quizzes: res.data, 
-//         title: "", 
-//         question: "", 
-//         answer: [
-//           {option:"",text:"",correct:""},
-//           {option:"",text:"",correct:""}, 
-//           {option:"",text:"",correct:""}, 
-//           {option:"",text:"",correct:""}
-//         ],
-//         hint: "",
-//         learning_std: ""})
-//       )
-//     .catch(err => console.log(err)); 
-// };
   //standards
-  // findAllStandards = () =>{
-  //   console.log();
-  // standards.getStandards()
-  // .then(res =>
-  //   this.setState({
-  //     standards: res.data, 
-  //     gradeLev: this.state.gradeLev,
-  //     title: this.state.title,
-  //     desc: this.state.desc,
-  //     text: this.state.text
-  //   })
-  //   )
-  //   .catch(err => console.log(err)); 
-  //   }
+  findAllStandards = () =>{
+  standards.getStandards()
+  .then(res =>
+    this.setState({
+      standards: res.data, 
+      gradeLev: this.state.gradeLev,
+      title: this.state.title,
+      desc: this.state.desc,
+      text: this.state.text
+    })
+    )
+    .catch(err => console.log(err)); 
+    }
 
-  componentDidMount() {
-    // findAllStandards();
-      }
+    // loadData() {
+    //   fetch('../standards.json') //cannot find!!
+    //     .then((res) => res.json())
+    //     .then((data) => {
+    //       console.log('data: ', data);
+    //      })
+    //     }
+
+    componentDidMount() {    
+      // var that = this;
+      fetch('./components/standardData.json')
+      .then(function(res, err) {
+        if (err) {
+          throw err;
+        }
+        return res;
+      })
+      .then(function(res) {
+          this.setState({
+          title: res.title,
+          gradeLev: res.gradeLev,
+          desc: res.desc,
+          text: res.text
+      })
+      })
+    .catch(err => console.log(err)); 
+    }
+
+    // componentDidMount() {
+    //   this.loadData();
+    //     }
 
   // handleStandardQuerySubmit = event => {
   //   event.preventDefault();
@@ -149,10 +158,8 @@ class Form extends Component {
 
 
 render() {
- // Notice how each input has a `value`, `name`, and `onChange` prop
-  // console.log(this.state.answer);
   return (
-
+<container>
   <div>
     
     <div className="row">
@@ -301,26 +308,27 @@ render() {
           <form className="form">
             
             <div className="col-sm-8">
-                Select Grade:  
-                <select>
+              <h6>American Association for the Advancement of Science Learning Standards</h6>
+                {/* <select>
                   <option value="1">Grade 6</option>
                   <option value="2">Grade 7</option>
-                </select>
+                </select> */}
               <br />
             </div>
             
             <div className="col-sm-4">
                 <button className="btn btn-primary left" onClick={this.handleStandardQuerySubmit}>Look Up</button>
               <br />
-              {/* {this.state.result
+              {/* { DATA } */}
+              {this.state.result
                 ? <StandardsDetail
                     gradeLev={this.state.result.gradeLev}
                     title={this.state.result.title}
                     desc={this.state.result.desc}
                     text={this.state.result.text}
-                  /> */}
+                  />
                 : <p>No Results to Display</p>
-                {/* }  */}
+                } 
             </div>
 
           </form> 
@@ -331,6 +339,7 @@ render() {
       </div>
       
   </div>
+  </container>
 );
 }
 }

@@ -2,7 +2,6 @@ import React from "react";
 
 const StandardsDetail = props =>
   <div className="standards">
-    
     <p>
       Grade Level: {props.gradeLev}
     </p>
@@ -13,7 +12,7 @@ const StandardsDetail = props =>
       Desc: {props.desc}
     </p>
     <p>
-      text: {props.text}
+      Text: {props.text}
     </p>
     
   </div>;

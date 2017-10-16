@@ -2,11 +2,11 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const standardSchema = new Schema({
-        standard: { type: Integer, required: true },
-        gradeLev: { type: Integer, required: true},
+        standard: { type: Number, required: true },
+        gradeLev: { type: Number, required: true},
         desc: { type: String, required: true},
         title: { type: String, required: true},
-        type: {type: Integer, required: true },
+        type: {type: Number, required: true },
         text: {type: String, required: true }
         });
 

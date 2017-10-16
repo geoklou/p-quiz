@@ -2,21 +2,30 @@ body {
     margin: 0px 50px 0px 50px;
     padding: 10px;
     font-family: sans-serif;
+    /* font-family: 'Didact Gothic'; */
     font-size: 16px;
   }
   
+  
+container{
+  background-color:#ccc;
+}
   header{
-      background-image: url("elearn1.png");
+    /* background: linear-gradient(to bottom, #33ccff 0%, #ff99cc 100%); */
+    /* background-image: url("elearn1.png"); */
+    background-image: url("elearn1.png"), url("nano.png");
+    background-position: left top, right; 
+    /* background-position: center;  */
       background-repeat: no-repeat;
-      background-color: #333;
+      background-color: black;
       color:white;
       padding: 20px;
       text-align: center;
-      font-size: 30px;
+      font-size: 28px;
       /* font-family: 'Franklin Gothic Medium'; */
       font-family: 'Josefin Sans';
       margin: 0 auto;
-      height: 100px;
+      height: 110px;
   }
 
  input {

@@ -1,20 +1,56 @@
 
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
 @import url('https://fonts.googleapis.com/css?family=Old+Standard+TT');
+@import url('https://fonts.googleapis.com/css?family=Didact+Gothic');
+
+a:hover {
+    color: red;
+}
+
+a:link{
+    color: blue;
+}
+
+center {
+    text-align: center;
+}
 
 p {
     line-height: 120%;
     margin: 10px;
 }
 
-h2{color:blue}
+h2 {
+    color:navy;
+    font-weight: bold;
+}
 
 h3 {
     margin: 10px;
 }
 
+h6 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+    font-style: italic;
+    line-height: 160%;
+    border: 1px inset #800000;
+    border-radius: 5px;
+    background-color: #ffff66;
+    padding: 10px;
+    margin: 2px;
+}
+
+h7 {
+    line-height: 160%;
+    border: 1px inset #800000;
+    background-color: #ffff66;
+    padding: 2px 4px 2px 4px;
+    margin: 2px 0px 2px 0px;
+}
+
 h4 {
-    margin: 10px;
+    margin: 10px; line-height: 140%;
 }
 
 hr {border-width: 2px; color: #352BF3;}
@@ -26,3 +62,5 @@ input {background-color: #FFFFE0;}
 indent {text-indent: 10px; color:blue;}
 
 standards {font-family: "Old Standard TT";}
+
+maroon {color:#800000;}
