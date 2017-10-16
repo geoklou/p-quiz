@@ -21,7 +21,8 @@ loadQuizzes = () => {
 
 render() {
 
-  const content = this.state.quizzes.map((quiz, index)=>
+  const content = this.state.quizzes.reverse().map((quiz, index)=>
+  
   <div key={index}>
     
     <h7><strong>Created:</strong> {quiz.date}</h7>
@@ -43,17 +44,15 @@ render() {
     </div>);
     
       return (
+      
         <div>
           <h2>All Questions</h2>
           
           { this.state.quizzes.length > 0 ? content : <h3>No Content To Display</h3> }
         </div>
+
           );
-
-
- 
-
-
+      
     }
   }
 

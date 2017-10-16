@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import API from "../../utils/API";
 import standards from '../../utils/standards';
 import StandardsDetail from '../Standards/details';
-// import DATA from '../standards.json';
+// import DATA from '../components/standards.js
 
 class Form extends Component {
     // Setting the component's initial state
@@ -123,8 +123,8 @@ class Form extends Component {
 
     componentDidMount() {    
       // var that = this;
-      fetch('./components/standardData.json')
-      .then(function(res, err) {
+      fetch('../components/standardData.json')
+      .then(function(err, res) {
         if (err) {
           throw err;
         }
@@ -145,16 +145,16 @@ class Form extends Component {
     //   this.loadData();
     //     }
 
-  // handleStandardQuerySubmit = event => {
-  //   event.preventDefault();
-  //   this.findAllStandards();
-  //     standards.standardsFound({
-  //       gradeLev: this.state.gradeLev,
-  //       title: this.state.title,
-  //       description: this.state.description,
-  //       text: this.state.text
-  //     })
-  //   };
+  handleStandardQuerySubmit = event => {
+    event.preventDefault();
+    this.findByTitle();
+      standards.standardsFound({
+        title: this.state.title,
+        gradeLev: this.state.gradeLev,
+        desc: this.state.desc,
+        text: this.state.text
+      })
+    };
 
 
 render() {
@@ -304,21 +304,45 @@ render() {
       <div className="col-sm-4">
         <h2> Learning Standards</h2>
           {/* {this.newStandard} */}
-          
+
+
         <div className='row'>
           <form className="form">
             
             <div className="col-sm-8">
               <h6>American Association for the Advancement of Science Learning Standards</h6>
-                {/* <select>
-                  <option value="1">Grade 6</option>
-                  <option value="2">Grade 7</option>
-                </select> */}
+
+              <div className="form-group">
+                <br />
+            <label htmlFor="select1" >Select Title</label>
+            {/* <select value={this.state.value} onChange={this.onChange.bind(this)} className="form-control"> */}
+            <select value={this.state.value} className="form-control">
+              <option value="select">Select an Option</option>
+              
+              <option value="stan_1">Abilities for Scientific Inq</option>
+              <option value="stan_2">Abilities of Technological Design</option>
+              <option value="stan_3">Algebra</option>
+              <option value="stan_4">Chemical Reactions</option>
+              <option value="stan_5">Conservation of Energy</option>
+              <option value="stan_6">Energy Transformations</option>
+              <option value="stan_7">Energy Sources and Use</option>
+              <option value="stan_8">Flow of Matter and Energy</option>
+              <option value="stan_9">Forces of Nature</option>
+              <option value="stan_10">Geometry</option>
+              <option value="stan_11">Interactions of Energy and Matter</option>
+              <option value="stan_12">Mathematics, Science, and Technology</option>
+              <option value="stan_13">Measurement</option>
+              <option value="stan_14">Motion</option>
+
+            </select>
+            </div>
+
               <br />
             </div>
             
             <div className="col-sm-4">
-                <button className="btn btn-primary left" onClick={this.handleStandardQuerySubmit}>Look Up</button>
+
+                <button className="btn btn-primary" onClick={this.handleStandardQuerySubmit}>Look Up</button>
               <br />
               {/* { DATA } */}
               {this.state.result

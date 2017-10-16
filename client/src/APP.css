@@ -16,6 +16,10 @@ img.box {
     box-shadow: 5px 5px 2px #666;
 }
 
+option {
+    background-color: #FFFFE0;
+}
+
 q{
     font-family:"Devonshire";
     font-size:32px;

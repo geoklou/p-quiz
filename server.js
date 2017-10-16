@@ -15,6 +15,10 @@ if (process.env.NODE_ENV === "production") {
 }
 // Add routes, both API and view
 app.use("/api", routes);
+
+app.use('/components', function(req, res){
+  res.json('');
+})
 // Set up promises with mongoose
 mongoose.Promise = global.Promise;
 // Connect to the Mongo DB
