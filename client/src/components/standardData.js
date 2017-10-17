@@ -1,6 +1,8 @@
-[
-   {
-      "standard": 101,
+
+
+const data = [
+    
+    { "standard": 101,
       "gradeLev": 1,
       "desc": "1.B.1 a",
       "title": "Scientific Inq",
@@ -2711,4 +2713,6 @@
       "type": 3,
       "text": "Use representations to model and interpret physical, social and mathematical phenomena."
    }
-]
+];
+
+export default data;

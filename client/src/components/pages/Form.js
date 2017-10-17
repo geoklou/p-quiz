@@ -2,8 +2,8 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
 import standards from '../../utils/standards';
-import StandardsDetail from '../Standards/details';
-// import DATA from '../components/standards.js
+// import StandardsDetail from '../Standards/details';
+import data from '../../components/standardData.js';
 
 class Form extends Component {
     // Setting the component's initial state
@@ -84,6 +84,7 @@ class Form extends Component {
   };
 
   handleFormSubmit = event => {
+    alert('One record added.');
     // Preventing the default behavior of the form submit (which is to refresh the page)
     event.preventDefault();
     // if (this.state.question && this.state.answer) {
@@ -104,7 +105,6 @@ class Form extends Component {
   .then(res =>
     this.setState({
       standards: res.data, 
-      gradeLev: this.state.gradeLev,
       title: this.state.title,
       desc: this.state.desc,
       text: this.state.text
@@ -113,51 +113,43 @@ class Form extends Component {
     .catch(err => console.log(err)); 
     }
 
-    // loadData() {
-    //   fetch('../standards.json') //cannot find!!
-    //     .then((res) => res.json())
-    //     .then((data) => {
-    //       console.log('data: ', data);
-    //      })
-    //     }
+  componentDidMount() {    
+    fetch('../components/standardData.json')
+    .then(response => response.json())
+    .then(data => this.setState({ standards: data.standards }));
+  }
 
-    componentDidMount() {    
-      // var that = this;
-      fetch('../components/standardData.json')
-      .then(function(err, res) {
-        if (err) {
-          throw err;
-        }
-        return res;
-      })
-      .then(function(res) {
-          this.setState({
-          title: res.title,
-          gradeLev: res.gradeLev,
-          desc: res.desc,
-          text: res.text
-      })
-      })
-    .catch(err => console.log(err)); 
-    }
-
-    // componentDidMount() {
-    //   this.loadData();
-    //     }
-
-  handleStandardQuerySubmit = event => {
+  handleStandardQuery = event => {
     event.preventDefault();
-    this.findByTitle();
-      standards.standardsFound({
-        title: this.state.title,
-        gradeLev: this.state.gradeLev,
-        desc: this.state.desc,
-        text: this.state.text
-      })
+    fetch('../components/standardData.json')
+    .then(function(err, res) {
+      if (err) {
+        throw err;
+      }
+      return res;
+    })
+    .then(function(res) {
+        this.setState({
+        title: res.title,
+        desc: res.desc,
+        text: res.text
+    })
+    })
+      .catch(err => console.log(err)); 
     };
 
+ handleStandardQuerySubmit = event => {
+    console.log(event.target.value);
+    console.log(this);
+    event.preventDefault();
+    let tempData = [];
+    tempData.push({});
+    return tempData;
+}
 
 render() {
+
+  // const { standards} = this.state;
 
   return (
 
@@ -305,7 +297,6 @@ render() {
         <h2> Learning Standards</h2>
           {/* {this.newStandard} */}
 
-
         <div className='row'>
           <form className="form">
             
@@ -315,26 +306,51 @@ render() {
               <div className="form-group">
                 <br />
             <label htmlFor="select1" >Select Title</label>
-            {/* <select value={this.state.value} onChange={this.onChange.bind(this)} className="form-control"> */}
-            <select value={this.state.value} className="form-control">
-              <option value="select">Select an Option</option>
-              
-              <option value="stan_1">Abilities for Scientific Inq</option>
-              <option value="stan_2">Abilities of Technological Design</option>
-              <option value="stan_3">Algebra</option>
-              <option value="stan_4">Chemical Reactions</option>
-              <option value="stan_5">Conservation of Energy</option>
-              <option value="stan_6">Energy Transformations</option>
-              <option value="stan_7">Energy Sources and Use</option>
-              <option value="stan_8">Flow of Matter and Energy</option>
-              <option value="stan_9">Forces of Nature</option>
-              <option value="stan_10">Geometry</option>
-              <option value="stan_11">Interactions of Energy and Matter</option>
-              <option value="stan_12">Mathematics, Science, and Technology</option>
-              <option value="stan_13">Measurement</option>
-              <option value="stan_14">Motion</option>
+            {/* <select value={this.state.value} onChange={this.handleStandardQuerySubmit.bind(this)} className="form-control"> */}
+            <select value={this.state.value} onChange={this.handleStandardQuerySubmit} className="form-control">
+              <option value="select">Select a title</option>
+
+              <option value="Abilities of Technological Design">Abilities of Technological Design</option>
+              <option value="Algebra">Algebra</option>
+              <option value="Chemical Reactions">Chemical Reactions</option>
+              <option value="Conservation of Energy">Conservation of Energy</option>
+              <option value="Energy Transformations">Energy Transformations</option>
+              <option value="Energy Sources and Use">Energy Sources and Use</option>
+              <option value="Flow of Matter and Energy">Flow of Matter and Energy</option>
+              <option value="Forces of Nature">Forces of Nature</option>
+              <option value="Geometry">Geometry</option>
+              <option value="Interactions of Energy and Matter">Interactions of Energy and Matter</option>
+              <option value="Mathematics, Science, and Technology">Mathematics, Science, and Technology</option>
+              <option value="Measurement">Measurement</option>
+              <option value="Motion">Motion</option>
+              <option value="Scientific Inq">Scientific Inq</option> 
 
             </select>
+
+            {data.map(standard =>
+            /* {/* for (title in standards){
+              if (tempData[0].title === standard.title)
+            { */
+           
+            /* // if tmpData[0].title === standard.title
+              // render this JSX
+            // otherwise do nothing */
+                    <div key={standard.objectID}>
+                     <p><strong> {standard.title} </strong> </p>
+                     <p> {standard.desc} </p>
+                     <p> {standard.text} </p>
+                    </div>
+            
+                  )}
+            
+            {/* {data.map(standard =>
+                    <div key={standard.objectID}>
+                     <p><strong> {standard.title} </strong> </p>
+                     <p> {standard.desc} </p>
+                     <p> {standard.text} </p>
+                    </div>
+                  )} */}
+
             </div>
 
               <br />
@@ -342,18 +358,16 @@ render() {
             
             <div className="col-sm-4">
 
-                <button className="btn btn-primary" onClick={this.handleStandardQuerySubmit}>Look Up</button>
+            <button className="btn btn-primary" onClick={this.handleStandardQuerySubmit}>Look Up</button>
               <br />
-              {/* { DATA } */}
-              {this.state.result
-                ? <StandardsDetail
-                    gradeLev={this.state.result.gradeLev}
-                    title={this.state.result.title}
-                    desc={this.state.result.desc}
-                    text={this.state.result.text}
-                  />
-                : <p>No Results to Display</p>
-                } 
+
+             
+                 <div>
+                  
+
+                  
+                </div>
+             
             </div>
 
           </form> 
