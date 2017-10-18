@@ -24,6 +24,11 @@
 .check{
     background-color: blue;
 }
+
+.qbutton{
+    margin: 10px;
+    background-color: red;
+}
 a:hover {
     color: red;
 }

@@ -191,7 +191,7 @@ render() {
 
         <div className="row">
           <div className="col-sm-10">
-            <h4>Option a:</h4>
+            {/* <h4>Option a:</h4> */}
               <input
                 value={this.state.answer[0].text}
                 name="text_0"
@@ -214,7 +214,7 @@ render() {
         
         <div className="row">
           <div className="col-sm-10">
-            <h4>Option b:</h4>
+            {/* <h4>Option b:</h4> */}
               <input
                 value={this.state.answer[1].text}
                 name="text_1"
@@ -237,7 +237,7 @@ render() {
 
         <div className="row">
           <div className="col-sm-10">
-            <h4>Option c:</h4>
+            {/* <h4>Option c:</h4> */}
               <input
                 value={this.state.answer[2].text}
                 name="text_2"
@@ -259,7 +259,7 @@ render() {
       
         <div className="row">
           <div className="col-sm-10">
-            <h4>Option d:</h4>
+            {/* <h4>Option d:</h4> */}
               <input
                 value={this.state.answer[3].text}
                 name="text_3"

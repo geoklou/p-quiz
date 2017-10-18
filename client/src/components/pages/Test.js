@@ -129,7 +129,7 @@ loadQuizzes = () => {
 
             </div>
 
-            <button className='btn btn-primary' onClick={this.handleFormSubmit}>Submit</button>
+            <button className='btn btn-primary qbutton' onClick={this.handleFormSubmit}>Submit</button>
           
           </form>  
       
