@@ -9,6 +9,7 @@ import Test from "./components/pages/Test";
 import AAAS from "./components/pages/AAAS";
 import Contact from "./components/pages/Contact";
 import './APP.css';
+// import {Footer} from './components/Footer.js';
 
 const App = () =>
   <Router>

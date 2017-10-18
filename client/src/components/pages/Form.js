@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import API from "../../utils/API";
 import standards from '../../utils/standards';
 // import StandardsDetail from '../Standards/details';
-import data from '../../components/standardData.js';
+// import data from '../../components/standardData.js';
 
 class Form extends Component {
     // Setting the component's initial state

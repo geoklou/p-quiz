@@ -6,7 +6,7 @@ const About = () =>
   <div>
    
     <div className="row">
-      <div className="col-sm-6">
+      <div className="col-sm-8">
 
       <h2>About STEM Learning Prep</h2>
       <h4>Ever wonder how to prepare students for class, to help them understand basic, grounding concepts?</h4>
@@ -17,7 +17,7 @@ const About = () =>
       </Link>
       </div>
 
-      <div className="col-sm-6">
+      <div className="col-sm-4">
         <img className="box" src={require('../../../src/road_star.png')} alt={"road map"}/>
         <q>“The best preparation for tomorrow is doing your best today.”
           </q>

@@ -19,7 +19,7 @@
 .box {
     width: 90%;
     margin: 0 auto;
-    background: linear-gradient(to top, #A0D6BB 0%, #F6F8F8 100%);
+    background: linear-gradient(to bottom, #e6e6ff 10%, #e6ffff 100%);
 }
 .check{
     background-color: blue;

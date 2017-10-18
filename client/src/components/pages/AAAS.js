@@ -106,8 +106,6 @@ class AAAS extends Component {
 
 render() {
 
-  // const { standards} = this.state;
-
   return (
 
   <div>
@@ -132,7 +130,7 @@ render() {
                       )}
             </div>
             
-            <div className="col-sm-4">
+            <div className="col-sm-3">
 
             <form className="form">
 
@@ -155,15 +153,18 @@ render() {
                   <option value="Motion">Motion</option>
                   <option value="Scientific Inq">Scientific Inq</option> 
                 </select>
-                  {/* <button className="btn btn-primary" onClick={this.handleStandardQuerySubmit}>Look Up</button> */}
-                  <br />
                 <div>
+    
+            </div>
 
           </div>
-        </div>
+        
         </form> 
         
         </div>
+              <div className="col-sm-1">
+                <button className="btn btn-primary" onClick={this.handleStandardQuerySubmit}>Look Up</button>
+              </div>
  
         </div>
 
