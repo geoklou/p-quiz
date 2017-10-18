@@ -16,22 +16,7 @@ class AAAS extends Component {
     this.handleInputChange = this.handleStandardQuerySubmit.bind(this);
   }
 
-  componentDidMount() {    
-    fetch('../components/standardData.json')
-    .then(response => response.json())
-    .then(data => this.setState({ standards: data.standards }));
-  }
-
-
-  sortStandards = (data) => {
-    var obj = [this.state.data];
-    obj.sort((a,b) => a.timeM - b.timeM);
-    obj.map((item, i) => (<div key={i}> {item.matchID}  
-                          {item.timeM} {item.description}</div>))
-  };
-
-
-  // handleStandardQuery = event => {
+    // handleStandardQuery = event => {
   //   event.preventDefault();
   //   fetch('../components/standardData.json')
   //   .then(function(err, res) {
@@ -50,15 +35,33 @@ class AAAS extends Component {
   //     .catch(err => console.log(err)); 
   //   };
 
+  componentDidMount() {    
+    fetch('../components/standardData.json')
+    .then(response => response.json())
+    .then(data => this.setState({ standards: data.standards }));
+  }
+
+  sortStandards = (data) => {
+    var obj = [this.state.data];
+    var field = data.title;
+    obj.sort(field)
+    
+    this.props.sortBy(field);
+    obj.map((item, i) => (<div key={i}> {item.desc}  
+                          {item.title} {item.text}</div>)
+    )
+  }
+
  handleStandardQuerySubmit = event => {
     console.log(event.target.value);
     console.log(this);
     event.preventDefault();
-    // sortStandards();
+    var obj = [this.state.data];
+    obj.push(data);
+    this.sortStandards(data);
 }
 
 render() {
-
   return (
 
   <div>

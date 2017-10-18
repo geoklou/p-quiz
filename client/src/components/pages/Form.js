@@ -94,12 +94,6 @@ class Form extends Component {
         .catch(err => console.log(err)); 
   };
 
-// searchStandards = query => {
-//   standards.search(query)
-//     .then(res => this.setState({ result: res.data }))
-//     .catch(err => console.log(err));
-// };
-
   //standards
   findAllStandards = () =>{
   standards.getStandards()
@@ -150,12 +144,10 @@ class Form extends Component {
 
 handleSearch = event => {
   event.preventDefault();
-  window.location = '/standards';
+  window.location = './standards';
 }
 
 render() {
-
-  // const { standards} = this.state;
 
   return (
 
