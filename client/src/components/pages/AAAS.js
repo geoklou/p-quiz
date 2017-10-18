@@ -1,8 +1,6 @@
-// import React from "react";
 import React, { Component } from "react";
-// import standards from '../../utils/standards';
-// import StandardsDetail from '../Standards/details';
 import data from '../../components/standardData.js';
+// import FilteredData from "../../components/filteredData.js";
 
 class AAAS extends Component {
     // Setting the component's initial state
@@ -16,49 +14,55 @@ class AAAS extends Component {
     this.handleInputChange = this.handleStandardQuerySubmit.bind(this);
   }
 
-    // handleStandardQuery = event => {
-  //   event.preventDefault();
+  // componentDidMount() {    
   //   fetch('../components/standardData.json')
-  //   .then(function(err, res) {
-  //     if (err) {
-  //       throw err;
-  //     }
-  //     return res;
-  //   })
-  //   .then(function(res) {
-  //       this.setState({
-  //       title: res.title,
-  //       desc: res.desc,
-  //       text: res.text
-  //   })
-  //   })
-  //     .catch(err => console.log(err)); 
-  //   };
+  //   .then(response => response.json())
+  //   .then(data => this.setState({ standards: data.standards }));
+  // }
 
-  componentDidMount() {    
-    fetch('../components/standardData.json')
-    .then(response => response.json())
-    .then(data => this.setState({ standards: data.standards }));
+  componentDidMount(){
+//show entire list
+
+  }
+  componentWiilMount(){
+//show filtered list
   }
 
-  sortStandards = (data) => {
-    var obj = [this.state.data];
-    var field = data.title;
-    obj.sort(field)
+  // sortStandards = (data) => {
+  //   var obj = [this.state.data];
+  //   var field = data.title;
+  //   obj.sort(field)
     
-    this.props.sortBy(field);
-    obj.map((item, i) => (<div key={i}> {item.desc}  
-                          {item.title} {item.text}</div>)
-    )
-  }
+  //   this.props.sortBy(field);
+  //   obj.map((item, i) => (<div key={i}> {item.desc}  
+  //                         {item.title} {item.text}</div>)
+  //   )
+  // }
 
  handleStandardQuerySubmit = event => {
-    console.log(event.target.value);
-    console.log(this);
+    console.log("target " + event.target.value);
+    console.log('this' + this);
     event.preventDefault();
-    var obj = [this.state.data];
-    obj.push(data);
-    this.sortStandards(data);
+    this.setState({title: event.target.value});
+    var filteredData = [];
+    var selectedTitle = data.filter(function(title){
+      for(var i = 0; i < data.length ; i++){
+        if(selectedTitle === title)
+        filteredData.push(data[i]);
+      }
+      console.log('title: ' + title);
+      console.log('filtered data: ' + filteredData);
+    });
+        filteredData.map(sd =>
+          <div key={sd.title}>
+          <p><strong> {filteredData.title} </strong> </p>
+          <p> {sd.desc} </p>
+          <p> {sd.text} </p>
+          </div>
+        )
+        // return item.title === this.state.title;
+      // })
+    // }
 }
 
 render() {
@@ -89,7 +93,7 @@ render() {
             <form className="form">
 
                 <div className="form-group">
-                <label htmlFor="select1" >Select Title</label>
+                <label htmlFor="select" >Select Title</label>
                 <select value={this.state.value} onChange={this.handleStandardQuerySubmit} className="form-control">
                   <option value="select">Select a title</option>
                   <option value="Abilities of Technological Design">Abilities of Technological Design</option>
@@ -108,9 +112,7 @@ render() {
                   <option value="Scientific Inq">Scientific Inq</option> 
                 </select>
                 <div>
-    
             </div>
-
           </div>
         
         </form> 
@@ -119,12 +121,13 @@ render() {
               <div className="col-sm-1">
                 <button className="btn btn-primary" onClick={this.handleStandardQuerySubmit}>Look Up</button>
               </div>
- 
+              {/* <FilteredData /> */}
         </div>
 
-        </div>
 
       </div>
+
+    </div>
       
   </div>
 );

@@ -2,6 +2,7 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
 import standards from '../../utils/standards';
+import { Link } from "react-router-dom";
 // import StandardsDetail from '../Standards/details';
 // import data from '../../components/standardData.js';
 
@@ -159,10 +160,17 @@ render() {
         <p>Create questions that help students revisit what they have learned or what they need to learn before class.
         {this.state.username} 
         </p>
-        <p>Search for learning standards that aligns with curriculum.</p>
+        <p>Search for learning standards that aligns with curriculum.<strong className="maroon"> >> </strong></p>
       
       <form className="form">
 
+          <input
+                value={this.state.alearning_std}
+                name="learning_std"
+                onChange={this.handleInputChange}
+                type="text"
+                placeholder="enter learning standard"/>
+            <br />
           <input
             value={this.state.title}
             name="title"
@@ -279,13 +287,14 @@ render() {
             placeholder="enter hint"
           />
         <br />
-          <input
+          {/* <input
             value={this.state.alearning_std}
             name="learning_std"
             onChange={this.handleInputChange}
             type="text"
             placeholder="enter learning standard"/>
-        <br />
+        <br /> */}
+
           <button className="btn btn-primary" onClick={this.handleFormSubmit}>Submit</button>
         </form>
       </div>
@@ -331,7 +340,8 @@ render() {
             
             <div className="col-sm-4">
 
-            <button className="btn btn-primary" onClick={this.handleSearch}>Look Up</button>
+            {/* <button className="btn btn-primary" onClick={this.handleSearch}>Look Up</button> */}
+            <Link className="btn btn-primary" to="/standards">Look Up</Link>
               <br />
 
              

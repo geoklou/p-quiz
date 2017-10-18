@@ -104,6 +104,12 @@ input {background-color: #FFFFE0;}
 
 indent {text-indent: 10px; color:blue;}
 
-standards {font-family: "Old Standard TT";}
+.standards {
+    font-family: "Old Standard TT";
+    color: #333;
+    font-size: 18px;
+    line-height: 180%;
+}
 
-maroon {color:#800000;}
+.maroon {color:#800000;}
+.left {float: left;}
