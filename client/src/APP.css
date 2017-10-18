@@ -9,7 +9,8 @@
     margin: 0 auto;
     background: linear-gradient(to left, #ffe6cc 2%, #ffffcc 100%);
     /* background: #ededed; */
-    border: 1px #666 outset;
+    border: 1px #666 dotted;
+    padding: 5px;
 }
 
 .title{

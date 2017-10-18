@@ -77,7 +77,7 @@ loadQuizzes = () => {
 
             <p className="title">Subject: {quiz.title}</p>
             <p>Question: {quiz.question}</p>
-            <p>Hint: {quiz.hint}</p>
+            
           
             <p>Options:</p>
 
@@ -129,16 +129,22 @@ loadQuizzes = () => {
 
             </div>
 
-            <button className='btn btn-primary qbutton' onClick={this.handleFormSubmit}>Submit</button>
-          
+           
+
+
           </form>  
       
+        
         </div> 
+        
+        <div className="col-sm-4">
+            <p>Hint: {quiz.hint}</p>
+            <button className='btn btn-primary qbutton' onClick={this.handleFormSubmit}>Submit</button>
+            </div>
+     
       </div>
       
-
       </div>
-
 
       </div>
       );
