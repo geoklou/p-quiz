@@ -9,7 +9,7 @@ import Test from "./components/pages/Test";
 import AAAS from "./components/pages/AAAS";
 import Contact from "./components/pages/Contact";
 import './APP.css';
-// import {Footer} from './components/Footer.js';
+// import Footer from "./components/Footer";
 
 const App = () =>
   <Router>
@@ -22,7 +22,9 @@ const App = () =>
       <Route exact path="/test" component={Test} />
       <Route exact path="/standards" component={AAAS} />
       <Route exact path="/contact" component={Contact} />
+      {/* <Footer/>; */}
     </div>
   </Router>;
+  
 
 export default App;

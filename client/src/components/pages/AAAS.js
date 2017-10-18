@@ -1,6 +1,6 @@
 // import React from "react";
 import React, { Component } from "react";
-import standards from '../../utils/standards';
+// import standards from '../../utils/standards';
 // import StandardsDetail from '../Standards/details';
 import data from '../../components/standardData.js';
 
@@ -9,66 +9,12 @@ class AAAS extends Component {
     constructor(props) {
       super(props);
       this.state = {
+        desc: "",
         title: "",
-        question: "",
-        answer: [
-          //same names as form fields
-          {
-            option: "a", 
-            text: "", 
-            correct: ""},
-          {
-            option: "b", 
-            text: "", 
-            correct: ""},
-          {
-            option: "c", 
-            text: "", 
-            correct: ""},
-          {
-            option: "d", 
-            text: "", 
-            correct: ""
-          },
-        ],
-        hint: "",
-        learning_std:""
+        text: ""
     };  
-    this.handleInputChange = this.handleInputChange.bind(this);
-    // this.handleAnswerChange = this.handleAnswerChange.bind(this);
+    this.handleInputChange = this.handleStandardQuerySubmit.bind(this);
   }
-
-  handleInputChange = event => {
-    console.log(`${event.target.name} - ${event.target.value}`)
-    // Getting the value and name of the input which triggered the change
-    const target = event.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-    const name = target.name;
-    // Updating the input's state
-    this.setState({
-      [name]: value
-    });
-  };
-
-// searchStandards = query => {
-//   standards.search(query)
-//     .then(res => this.setState({ result: res.data }))
-//     .catch(err => console.log(err));
-// };
-
-  //standards
-  findAllStandards = () =>{
-  standards.getStandards()
-  .then(res =>
-    this.setState({
-      standards: res.data, 
-      title: this.state.title,
-      desc: this.state.desc,
-      text: this.state.text
-    })
-    )
-    .catch(err => console.log(err)); 
-    }
 
   componentDidMount() {    
     fetch('../components/standardData.json')
@@ -76,32 +22,39 @@ class AAAS extends Component {
     .then(data => this.setState({ standards: data.standards }));
   }
 
-  handleStandardQuery = event => {
-    event.preventDefault();
-    fetch('../components/standardData.json')
-    .then(function(err, res) {
-      if (err) {
-        throw err;
-      }
-      return res;
-    })
-    .then(function(res) {
-        this.setState({
-        title: res.title,
-        desc: res.desc,
-        text: res.text
-    })
-    })
-      .catch(err => console.log(err)); 
-    };
+
+  sortStandards = (data) => {
+    var obj = [this.state.data];
+    obj.sort((a,b) => a.timeM - b.timeM);
+    obj.map((item, i) => (<div key={i}> {item.matchID}  
+                          {item.timeM} {item.description}</div>))
+  };
+
+
+  // handleStandardQuery = event => {
+  //   event.preventDefault();
+  //   fetch('../components/standardData.json')
+  //   .then(function(err, res) {
+  //     if (err) {
+  //       throw err;
+  //     }
+  //     return res;
+  //   })
+  //   .then(function(res) {
+  //       this.setState({
+  //       title: res.title,
+  //       desc: res.desc,
+  //       text: res.text
+  //   })
+  //   })
+  //     .catch(err => console.log(err)); 
+  //   };
 
  handleStandardQuerySubmit = event => {
     console.log(event.target.value);
     console.log(this);
     event.preventDefault();
-    let tempData = [];
-    tempData.push({});
-    return tempData;
+    // sortStandards();
 }
 
 render() {
@@ -111,12 +64,10 @@ render() {
   <div>
     
     <div className="row">
-        
-      <p>Search for learning standards that aligns with curriculum.</p>
       
       <div className="col-sm-12">
         <h2> Learning Standards</h2>
-
+        <p>Search for learning standards that aligns with curriculum.</p>
         <div className='row'>            
             <div className="col-sm-8">
               <h6>American Association for the Advancement of Science Learning Standards</h6>
