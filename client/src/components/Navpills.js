@@ -10,13 +10,16 @@ const Navpills = () =>
       <Link to="/">About</Link>
     </li>
     <li className={window.location.pathname === "/form" ? "active" : ""}>
-      <Link to="/form">Enter Questions</Link>
+      <Link to="/form">Create Questions</Link>
     </li>
     <li className={window.location.pathname === "/quizzes" ? "active" : ""}>
       <Link to="/quizzes">All Questions</Link>
     </li>
     <li className={window.location.pathname === "/test" ? "active" : ""}>
       <Link to="/test">Quiz</Link>
+    </li>
+    <li className={window.location.pathname === "/standards" ? "active" : ""}>
+      <Link to="/standards">AAAS Learning Standards</Link>
     </li>
     <li
       className={window.location.pathname === "/contact" ? "active" : ""}>

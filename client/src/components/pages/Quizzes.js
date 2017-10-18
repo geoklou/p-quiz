@@ -29,6 +29,7 @@ render() {
    
     <p className="maroon"><strong>Subject:</strong> {quiz.title}</p> 
     <p><strong>Question:</strong> {quiz.question}</p>
+    
     <div>
       <ol>
       <li><strong>Option {quiz.answer[0].option}.</strong> {quiz.answer[0].text} is {quiz.answer[0].correct.toString()}</li>
@@ -36,12 +37,12 @@ render() {
       <li><strong>Option {quiz.answer[2].option}.</strong> {quiz.answer[2].text} is {quiz.answer[2].correct.toString()}</li>
       <li><strong>Option {quiz.answer[3].option}.</strong> {quiz.answer[3].text} is {quiz.answer[3].correct.toString()}</li>
       </ol>
-   </div>
+    </div>
+
     <p><strong>Hint:</strong> {quiz.hint}</p>
     <p><strong>Learning Standard:</strong> {quiz.learning_std}</p>
     
-    {/* <hr/> */}
-    </div>);
+  </div>);
     
       return (
       

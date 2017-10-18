@@ -4,6 +4,26 @@
 @import url('https://fonts.googleapis.com/css?family=Didact+Gothic');
 @import url('https://fonts.googleapis.com/css?family=Devonshire');
 
+.wrapper{
+    width: 90%;
+    margin: 0 auto;
+    background: linear-gradient(to left, #ffe6cc 2%, #ffffcc 100%);
+    /* background: #ededed; */
+    border: 1px #666 outset;
+}
+
+.title{
+    color: maroon;
+    font-weight: bold;
+}
+.box {
+    width: 90%;
+    margin: 0 auto;
+    background: linear-gradient(to top, #A0D6BB 0%, #F6F8F8 100%);
+}
+.check{
+    background-color: blue;
+}
 a:hover {
     color: red;
 }

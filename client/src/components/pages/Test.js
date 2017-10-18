@@ -1,50 +1,52 @@
 import React, { Component } from "react";
+// import { List, ListItem } from "../List";
+// import { Link } from "react-router-dom";
 import API from "../../utils/API";
-// import { checkboxGroup, checkboxButton } from 'react-checkbox-buttons';
 
-class Test extends Component {
-    // Setting the component's initial state
-    state = {
-      quizzes: [],
-      question: "",
-      answer: [],
-      hint: ""
-    };  
+class Test extends Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+    quizzes: [],
+    question: "",
+    answer: [],
+    hint: ""
+  };  
+  this.handleFormSubmit = this.handleFormSubmit.bind(this);
+}
 
-    componentDidMount(){
-      // this.loadQuizzes();
-    }
+componentDidMount() {
+  this.loadQuizzes();
+  console.log();
+}
 
-    loadQUizzes = () => {
-      API.getQuizzes()
-      .then(res =>
-      this.setState({
-        quizzes: res.data,
-        title: "",
-        question: "",
-        answer: [
-          {
-            option: "a", 
-            text: "", 
-            correct: ""},
-          {
-            option: "b", 
-            text: "", 
-            correct: ""},
-          {
-            option: "c", 
-            text: "", 
-            correct: ""},
-          {
-            option: "d", 
-            text: "", 
-            correct: ""
-          },
-        ],
-        hint: ""
-      })
-    )
-    .catch(err => console.log(err))
+loadQuizzes = () => {
+  API.getQuizzes()
+  .then(res =>  this.setState({quizzes: res.data}))
+  .catch(err => console.log(err));
+};
+
+  componentWillMount() {
+    API.getQuizzes();
+    this.setState({
+      question: this.state.question,
+      answer: this.state.answer
+    });
+  }
+
+    shuffleArray(array) {
+      var currentIndex = array.length, temporaryValue, randomIndex;
+  
+      while (0 !== currentIndex) {
+  
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+  
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+      }
+      return array;
     };
   
     handleInputChange = event => {
@@ -62,8 +64,85 @@ class Test extends Component {
     };
   
   render() {
-    // const content = this.state.quizzes.map((quiz, index)=>
-    // <div key={index}>
+
+    const content = this.state.quizzes.reverse().map((quiz, index )=>
+    
+    <div key={index}>
+
+<div className="wrapper">
+    <div className="row">
+      <div className="col-sm-8">
+          
+          <form className="form">
+
+            <p className="title">Subject: {quiz.title}</p>
+            <p>Question: {quiz.question}</p>
+            <p>Hint: {quiz.hint}</p>
+          
+            <p>Options:</p>
+
+            <div className="row box">
+
+              <div className="col-sm-10">
+                {quiz.answer[0].text}
+              </div>
+
+              <div className="col-sm-2">
+                  <label>a. {quiz.answer[0].correct}
+                    <input type="checkbox" value="this.state.answer[0].correct" defaultChecked={false} />
+                  </label>
+              </div>
+
+            </div>
+
+            <div className="row box">
+              <div className="col-sm-10">
+                {quiz.answer[1].text}
+              </div>
+              <div className="col-sm-2">
+                  <label>  b. {quiz.answer[1].correct}
+                    <input type="checkbox" value="this.state.answer[1].correct" />
+                  </label>
+              </div>
+            </div>
+            
+            <div className="row box">
+              <div className="col-sm-10">
+                {quiz.answer[2].text}
+              </div>
+              <div className="col-sm-2">
+              <label> c. {quiz.answer[2].correct}
+                <input type="checkbox" value="this.state.answer[2].correct" />
+              </label>
+              </div>
+            </div>
+
+            <div className="row box">
+              <div className="col-sm-10">
+                {quiz.answer[3].text}
+              </div>
+              <div className="col-sm-2">
+                <label>  d. {quiz.answer[3].correct}
+                  <input type="checkbox" value="this.state.answer[3].correct" />
+                </label>
+              </div> 
+
+            </div>
+
+            <button className='btn btn-primary' onClick={this.handleFormSubmit}>Submit</button>
+          
+          </form>  
+      
+        </div> 
+      </div>
+      
+
+      </div>
+
+
+      </div>
+      );
+       
     return (
      
     <div>
@@ -71,83 +150,9 @@ class Test extends Component {
       <h2>Take a Quiz</h2>
       <p>Try your best to answer the question. This will help you do well in class.</p>
       <p>And, don't forget to check out the hint.</p>
-      
-        <div className="row">
-          <div className="col-sm-8">
-
-          <form className="form">
-        
-          {/* {this.state.quizzes.length ? (
-            <li key={quiz.date}>
-            {this.state.quizzes.map(book => ( */}
-
-            <p>Subject: {this.state.title}</p>
-            <p>Question: {this.state.question}</p>
-            <p>Options:</p>
-
-            <div className="row">
-              <div className="col-sm-10">
-              {this.state.answer.text}
-              </div>
-              <div className="col-sm-2">
-                  <label>
-                    <input type="checkbox" value="this.state.answer[0].correct" defaultChecked={false} />
-                    Option 1 {this.state.answer.correct}
-                  </label>
-              </div>
-            </div>
-
-            <div className="row">
-              <div className="col-sm-10">
-                {/* {this.state.answer[1].text} */}
-                {this.state.answer}
-              </div>
-              <div className="col-sm-2">
-                  <label>
-                    <input type="checkbox" value="this.state.answer[1].correct" />
-                    Option 2 {this.state.answer.correct}
-                  </label>
-              </div>
-            </div>
-            
-            <div className="row">
-              <div className="col-sm-10">
-                {this.state.answer.text}
-              </div>
-              <div className="col-sm-2">
-              <label>
-                <input type="checkbox" value="this.state.answer[2].correct" />
-                Option 3 {this.state.answer.correct}
-              </label>
-              </div>
-            </div>
-
-            <div className="row">
-              <div className="col-sm-10">
-                {this.state.answer.text}
-              </div>
-              <div className="col-sm-2">
-                <label>
-                  <input type="checkbox" value="this.state.answer[3].correct" />
-                  Option 4 {this.state.answer.correct}
-                </label>
-              </div> 
-            </div>
-
-            <div className='row'>
-              <div className="col-sm-8">
-              <p>Hint: {this.state.hint}</p>
-              </div>
-            </div>
-
-          <button className='btn btn-primary' onClick={this.handleFormSubmit}>Submit</button>
-  
-    
-          </form> 
-
-        </div>
+      { this.state.quizzes.length > 0 ? content : <h3>No Content To Display</h3> }
+   
     </div>
-  </div>
 
       );
     }

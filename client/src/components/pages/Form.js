@@ -37,6 +37,7 @@ class Form extends Component {
     };  
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleAnswerChange = this.handleAnswerChange.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
   }
 
   createQuiz = () => {
@@ -145,6 +146,11 @@ class Form extends Component {
     let tempData = [];
     tempData.push({});
     return tempData;
+}
+
+handleSearch = event => {
+  event.preventDefault();
+  window.location = '/standards';
 }
 
 render() {
@@ -305,8 +311,7 @@ render() {
 
               <div className="form-group">
                 <br />
-            <label htmlFor="select1" >Select Title</label>
-            {/* <select value={this.state.value} onChange={this.handleStandardQuerySubmit.bind(this)} className="form-control"> */}
+            {/* <label htmlFor="select1" >Select Title</label>
             <select value={this.state.value} onChange={this.handleStandardQuerySubmit} className="form-control">
               <option value="select">Select a title</option>
 
@@ -325,31 +330,7 @@ render() {
               <option value="Motion">Motion</option>
               <option value="Scientific Inq">Scientific Inq</option> 
 
-            </select>
-
-            {data.map(standard =>
-            /* {/* for (title in standards){
-              if (tempData[0].title === standard.title)
-            { */
-           
-            /* // if tmpData[0].title === standard.title
-              // render this JSX
-            // otherwise do nothing */
-                    <div key={standard.objectID}>
-                     <p><strong> {standard.title} </strong> </p>
-                     <p> {standard.desc} </p>
-                     <p> {standard.text} </p>
-                    </div>
-            
-                  )}
-            
-            {/* {data.map(standard =>
-                    <div key={standard.objectID}>
-                     <p><strong> {standard.title} </strong> </p>
-                     <p> {standard.desc} </p>
-                     <p> {standard.text} </p>
-                    </div>
-                  )} */}
+            </select> */}
 
             </div>
 
@@ -358,7 +339,7 @@ render() {
             
             <div className="col-sm-4">
 
-            <button className="btn btn-primary" onClick={this.handleStandardQuerySubmit}>Look Up</button>
+            <button className="btn btn-primary" onClick={this.handleSearch}>Look Up</button>
               <br />
 
              
@@ -381,5 +362,6 @@ render() {
 );
 }
 }
+
 
 export default Form;

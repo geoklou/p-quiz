@@ -6,6 +6,7 @@ import About from "./components/pages/About";
 import Form from "./components/pages/Form";
 import Quizzes from "./components/pages/Quizzes";
 import Test from "./components/pages/Test";
+import AAAS from "./components/pages/AAAS";
 import Contact from "./components/pages/Contact";
 import './APP.css';
 
@@ -18,6 +19,7 @@ const App = () =>
       <Route exact path="/form" component={Form} />
       <Route exact path="/quizzes" component={Quizzes} />
       <Route exact path="/test" component={Test} />
+      <Route exact path="/standards" component={AAAS} />
       <Route exact path="/contact" component={Contact} />
     </div>
   </Router>;
