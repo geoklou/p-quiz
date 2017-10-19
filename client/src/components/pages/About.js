@@ -19,8 +19,8 @@ const About = () =>
 
       <div className="col-sm-4">
         <img className="box" src={require('../../../src/road_star.png')} alt={"road map"}/>
-        <q>“The best preparation for tomorrow is doing your best today.”
-          </q>
+        <span className='q'>The best preparation for tomorrow is doing your best today.
+          </span>
       </div>
 
     </div>
