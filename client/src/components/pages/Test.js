@@ -131,7 +131,6 @@ loadQuizzes = () => {
 
            
 
-
           </form>  
       
         
@@ -141,6 +140,13 @@ loadQuizzes = () => {
             <p>Hint: {quiz.hint}</p>
             <button className='btn btn-primary qbutton' onClick={this.handleFormSubmit}>Submit</button>
             </div>
+
+            <div className="comments">
+            <textarea style={{ height: 150 }}>
+              Is this question too difficult for you? What do you think about science and math? 
+              Tell us your story... (drag the bottom right corner to expand the box)
+            </textarea>
+              </div>
      
       </div>
       
@@ -156,7 +162,7 @@ loadQuizzes = () => {
       <h2>Take a Quiz</h2>
       <p>Try your best to answer the question. This will help you do well in class.</p>
       <p>And, don't forget to check out the hint.</p>
-      { this.state.quizzes.length > 0 ? content : <h3>No Content To Display</h3> }
+      { this.state.quizzes.length > 0 ? content : <h4>No Content To Display</h4> }
    
     </div>
 
