@@ -14,12 +14,6 @@ class AAAS extends Component {
     this.handleInputChange = this.handleStandardQuerySubmit.bind(this);
   }
 
-  // componentDidMount() {    
-  //   fetch('../components/standardData.json')
-  //   .then(response => response.json())
-  //   .then(data => this.setState({ standards: data.standards }));
-  // }
-
   componentDidMount(){
 //show entire list
 
@@ -28,58 +22,38 @@ class AAAS extends Component {
 //show filtered list
   }
 
-  // sortStandards = (data) => {
-  //   var obj = [this.state.data];
-  //   var field = data.title;
-  //   obj.sort(field)
-    
-  //   this.props.sortBy(field);
-  //   obj.map((item, i) => (<div key={i}> {item.desc}  
-  //                         {item.title} {item.text}</div>)
-  //   )
-  // }
-
  handleStandardQuerySubmit = event => {
     console.log("target " + event.target.value);
     console.log('this' + this);
     event.preventDefault();
     this.setState({title: event.target.value});
-    var filteredData = [];
-    var selectedTitle = data.filter(function(title){
-      for(var i = 0; i < data.length ; i++){
-        if(selectedTitle === title)
-        filteredData.push(data[i]);
-      }
-      console.log('title: ' + title);
-      console.log('filtered data: ' + filteredData);
-    });
-        filteredData.map(sd =>
-          <div key={sd.title}>
-          <p><strong> {filteredData.title} </strong> </p>
-          <p> {sd.desc} </p>
-          <p> {sd.text} </p>
-          </div>
-        )
-        // return item.title === this.state.title;
-      // })
-    // }
 }
 
 render() {
-  return (
+  console.log(this.state.title === '');
+  let filteredData;
 
+  if (this.state.title === '') {
+    filteredData = data;
+  } else {
+    filteredData = data.filter((course) => {
+      return (course.title === this.state.title)
+    });
+  }
+
+  return (
   <div>
     
     <div className="row">
       
       <div className="col-sm-12">
         <h2> Learning Standards</h2>
-        <p>Search for learning standards that aligns with curriculum.</p>
+        <p>Search for learning standards that align with curriculum.</p>
         <div className='row'>            
             <div className="col-sm-8">
               <h6>American Association for the Advancement of Science Learning Standards</h6>
 
-                {data.map(standard =>
+                {filteredData.map(standard =>
                         <div key={standard.objectID}>
                         <p><strong> {standard.title} </strong> </p>
                         <p> {standard.desc} </p>
@@ -93,9 +67,9 @@ render() {
             <form className="form">
 
                 <div className="form-group">
-                <label htmlFor="select" >Select Title</label>
+                <label htmlFor="select" >Select Topic</label>
                 <select value={this.state.value} onChange={this.handleStandardQuerySubmit} className="form-control">
-                  <option value="select">Select a title</option>
+                  <option value="select">Select a topic</option>
                   <option value="Abilities of Technological Design">Abilities of Technological Design</option>
                   <option value="Algebra">Algebra</option>
                   <option value="Chemical Reactions">Chemical Reactions</option>
@@ -119,9 +93,8 @@ render() {
         
         </div>
               <div className="col-sm-1">
-                <button className="btn btn-primary" onClick={this.handleStandardQuerySubmit}>Look Up</button>
+                <button className="btn btn-primary" onClick={this.handleStandardQuerySubmit}>List</button>
               </div>
-              {/* <FilteredData /> */}
         </div>
 
 

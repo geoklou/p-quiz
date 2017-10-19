@@ -3,8 +3,6 @@ import React, { Component } from "react";
 import API from "../../utils/API";
 import standards from '../../utils/standards';
 import { Link } from "react-router-dom";
-// import StandardsDetail from '../Standards/details';
-// import data from '../../components/standardData.js';
 
 class Form extends Component {
     // Setting the component's initial state
@@ -38,7 +36,6 @@ class Form extends Component {
     };  
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleAnswerChange = this.handleAnswerChange.bind(this);
-    this.handleSearch = this.handleSearch.bind(this);
   }
 
   createQuiz = () => {
@@ -143,10 +140,6 @@ class Form extends Component {
     return tempData;
 }
 
-handleSearch = event => {
-  event.preventDefault();
-  window.location = './standards';
-}
 
 render() {
 
@@ -191,7 +184,6 @@ render() {
 
         <div className="row">
           <div className="col-sm-10">
-            {/* <h4>Option a:</h4> */}
               <input
                 value={this.state.answer[0].text}
                 name="text_0"
@@ -214,7 +206,6 @@ render() {
         
         <div className="row">
           <div className="col-sm-10">
-            {/* <h4>Option b:</h4> */}
               <input
                 value={this.state.answer[1].text}
                 name="text_1"
@@ -237,7 +228,6 @@ render() {
 
         <div className="row">
           <div className="col-sm-10">
-            {/* <h4>Option c:</h4> */}
               <input
                 value={this.state.answer[2].text}
                 name="text_2"
@@ -259,7 +249,6 @@ render() {
       
         <div className="row">
           <div className="col-sm-10">
-            {/* <h4>Option d:</h4> */}
               <input
                 value={this.state.answer[3].text}
                 name="text_3"
@@ -287,22 +276,15 @@ render() {
             placeholder="enter hint"
           />
         <br />
-          {/* <input
-            value={this.state.alearning_std}
-            name="learning_std"
-            onChange={this.handleInputChange}
-            type="text"
-            placeholder="enter learning standard"/>
-        <br /> */}
+
 
           <button className="btn btn-primary" onClick={this.handleFormSubmit}>Submit</button>
         </form>
       </div>
 
-  {/* learning standards start here */ }
+
       <div className="col-sm-4">
         <h2> Learning Standards</h2>
-          {/* {this.newStandard} */}
 
         <div className='row'>
           <form className="form">
@@ -312,26 +294,6 @@ render() {
 
               <div className="form-group">
                 <br />
-            {/* <label htmlFor="select1" >Select Title</label>
-            <select value={this.state.value} onChange={this.handleStandardQuerySubmit} className="form-control">
-              <option value="select">Select a title</option>
-
-              <option value="Abilities of Technological Design">Abilities of Technological Design</option>
-              <option value="Algebra">Algebra</option>
-              <option value="Chemical Reactions">Chemical Reactions</option>
-              <option value="Conservation of Energy">Conservation of Energy</option>
-              <option value="Energy Transformations">Energy Transformations</option>
-              <option value="Energy Sources and Use">Energy Sources and Use</option>
-              <option value="Flow of Matter and Energy">Flow of Matter and Energy</option>
-              <option value="Forces of Nature">Forces of Nature</option>
-              <option value="Geometry">Geometry</option>
-              <option value="Interactions of Energy and Matter">Interactions of Energy and Matter</option>
-              <option value="Mathematics, Science, and Technology">Mathematics, Science, and Technology</option>
-              <option value="Measurement">Measurement</option>
-              <option value="Motion">Motion</option>
-              <option value="Scientific Inq">Scientific Inq</option> 
-
-            </select> */}
 
             </div>
 
@@ -340,14 +302,11 @@ render() {
             
             <div className="col-sm-4">
 
-            {/* <button className="btn btn-primary" onClick={this.handleSearch}>Look Up</button> */}
             <Link className="btn btn-primary" to="/standards">Look Up</Link>
               <br />
-
              
                  <div>
                   
-
                   
                 </div>
              
@@ -364,6 +323,5 @@ render() {
 );
 }
 }
-
 
 export default Form;
