@@ -156,7 +156,6 @@ render() {
         <p>Search for learning standards that aligns with curriculum.<strong className="maroon"> >> </strong></p>
       
       <form className="form">
-
           <input
                 value={this.state.alearning_std}
                 name="learning_std"
