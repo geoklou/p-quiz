@@ -83,7 +83,7 @@ class Form extends Component {
   };
 
   handleFormSubmit = event => {
-    alert('One record added.');
+    alert('One record will be added if all fields are entered.');
     // Preventing the default behavior of the form submit (which is to refresh the page)
     event.preventDefault();
     // if (this.state.question && this.state.answer) {
@@ -140,6 +140,9 @@ class Form extends Component {
     return tempData;
 }
 
+resetForm = () => { 
+  document.getElementById("quizForm").reset();
+}
 
 render() {
 
@@ -155,7 +158,7 @@ render() {
         </p>
         <p>Search for learning standards that aligns with curriculum.<strong className="maroon"> >> </strong></p>
       
-      <form className="form">
+      <form className="form" id="quizForm">
           <input
                 value={this.state.alearning_std}
                 name="learning_std"
@@ -278,6 +281,7 @@ render() {
 
 
           <button className="btn btn-primary" onClick={this.handleFormSubmit}>Submit</button>
+          <button className="btn btn-primary" name="resetForm" value="reset" onClick={this.resetForm}>Reset</button>
         </form>
       </div>
 

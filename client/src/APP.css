@@ -113,3 +113,5 @@ indent {text-indent: 10px; color:blue;}
 
 .maroon {color:#800000;}
 .left {float: left;}
+
+.error { border: 1px solid red; }
