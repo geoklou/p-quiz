@@ -279,9 +279,7 @@ render() {
           />
         <br />
 
-
           <button className="btn btn-primary" onClick={this.handleFormSubmit}>Submit</button>
-          <button className="btn btn-primary" name="resetForm" value="reset" onClick={this.resetForm}>Reset</button>
         </form>
       </div>
 
