@@ -140,9 +140,6 @@ class Form extends Component {
     return tempData;
 }
 
-resetForm = () => { 
-  document.getElementById("quizForm").reset();
-}
 
 render() {
 
